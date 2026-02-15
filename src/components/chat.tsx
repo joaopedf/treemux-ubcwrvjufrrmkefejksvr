@@ -3,6 +3,7 @@
 import { useState, useEffect, useRef, FormEvent } from 'react';
 import { Button } from '@/components/ui/button';
 import { Send, Sparkles } from 'lucide-react';
+import { AdventureExamples } from './adventure-examples';
 
 type Message = {
   id: string;
@@ -121,21 +122,27 @@ export function Chat() {
               <p className="text-gray-400 mb-8 max-w-md mx-auto">
                 Tell me what you are curious about or what kind of experience you are looking for, and I will help you make it happen.
               </p>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto">
-                {[
-                  'Find a secret rooftop spot in my city',
-                  'Plan a spontaneous weekend getaway',
-                  'Discover underground events happening tonight',
-                  'Help me try something I have never done before'
-                ].map((suggestion, i) => (
-                  <button
-                    key={i}
-                    onClick={() => handleSuggestionClick(suggestion)}
-                    className="px-4 py-3 text-left rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm transition-all hover:scale-105"
-                  >
-                    {suggestion}
-                  </button>
-                ))}
+
+              <AdventureExamples />
+
+              <div className="mt-8">
+                <p className="text-sm text-gray-500 mb-3 text-center">Or ask me anything:</p>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto">
+                  {[
+                    'Find a secret rooftop spot in my city',
+                    'Plan a spontaneous weekend getaway',
+                    'Discover underground events happening tonight',
+                    'Help me try something I have never done before'
+                  ].map((suggestion, i) => (
+                    <button
+                      key={i}
+                      onClick={() => handleSuggestionClick(suggestion)}
+                      className="px-4 py-3 text-left rounded-lg bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm transition-all hover:scale-105"
+                    >
+                      {suggestion}
+                    </button>
+                  ))}
+                </div>
               </div>
             </div>
           ) : (
